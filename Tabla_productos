@@ -1,0 +1,12 @@
+CREATE TABLE Productos (
+  ID INT PRIMARY KEY,
+  Nombre VARCHAR(50),
+  Precio DECIMAL(10, 2),
+  Tamaño VARCHAR(50),
+  Categoria VARCHAR(50)
+);
+INSERT INTO Productos (ID, Nombre, Precio, Tamaño, Categoria)
+VALUES (001, 'Cocada', 50, '50g', 'Tradicional'),
+       (002, 'Jamoncillo', 99, '100g', 'Dulce'),
+       (003, 'Borrachitos', 45, '70g', 'Exotico');
+
