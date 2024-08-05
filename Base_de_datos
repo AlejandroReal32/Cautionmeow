@@ -1,0 +1,125 @@
+CREATE DATABASE Viaje_a_tu_ninez;
+
+CREATE TABLE Productos (
+  ID INT PRIMARY KEY,
+  Nombre VARCHAR(50),
+  Precio DECIMAL(10, 2),
+  Tamaño VARCHAR(50),
+  Categoria VARCHAR(50)
+);
+INSERT INTO Productos (ID, Nombre, Precio, Tamaño, Categoria)
+VALUES 
+(001, 'Cocada', 50, '50g', 'Tradicional'),
+(002, 'Jamoncillo', 99.90, '100g', 'Dulce'),
+(003, 'Borrachitos', 99.90, '70g', 'Exotico'),
+(004, 'Alegrías', 60, '75g', 'Tradicional'),
+(005, 'Mazapán', 80, '40g', 'Tradicional'),
+(006, 'Paleta de Tamarindo', 30, '25g', 'Picante'),
+(007, 'Camote', 70, '100g', 'Dulce'),
+(008, 'Obleas', 55, '50g', 'Tradicional'),
+(009, 'Pulparindo', 45, '20g', 'Picante'),
+(010, 'Chicloso', 65, '50g', 'Dulce');
+
+
+CREATE TABLE Empleados (
+  ID INT PRIMARY KEY,
+  Nombre VARCHAR(50),
+  Apellido VARCHAR(50),
+  Rol Varchar(50)
+);
+
+
+INSERT INTO Empleados (ID, Nombre, Apellido, Rol) VALUES
+(001, 'Brenda', 'Hermosillo', 'Gerente'),
+(002, 'Maria', 'Lopez', 'Desarrollador'),
+(003, 'Carlos', 'Gonzalez', 'Analista'),
+(004, 'Cesar', 'Acuña', 'Limpieza'),
+(005, 'Luis', 'Casillas', 'Tester'),
+(006, 'Carmen', 'Garcia', 'Soporte'),
+(007, 'Jose', 'Hernandez', 'Administrador'),
+(008, 'Laura', 'Fernandez', 'Diseñador'),
+(009, 'Alejandro', 'Real', 'CEO'),
+(010, 'Sofia', 'Diaz', 'Desarrollador');
+
+CREATE TABLE Ordenes (
+  ID_orden INT PRIMARY KEY,
+  ID_Cliente INT,
+  fecha_de_entrega DATE,
+  Total DECIMAL(10, 2),
+  metodo_de_pago VARCHAR(50),
+  ID_producto INT,
+  domicilio VARCHAR(255)
+);
+
+INSERT INTO Ordenes (ID_orden, ID_Cliente, fecha_de_entrega, Total, metodo_de_pago, ID_producto, domicilio) VALUES
+(1, 101, '2023-01-10', 100.50, 'Tarjeta de Crédito', 201, 'Calle Puebla 123'),
+(2, 102, '2023-01-15', 200.75, 'Paypal', 202, 'Avenida insurgente 742'),
+(3, 103, '2023-02-01', 150.00, 'Efectivo', 203, 'Calle  la Paz 45'),
+(4, 104, '2023-02-10', 300.25, 'Tarjeta de Débito', 204, 'Calle Mayor 678'),
+(5, 105, '2023-02-20', 250.60, 'Transferencia Bancaria', 205, 'Plaza Central 66'),
+(6, 106, '2023-03-05', 180.40, 'Tarjeta de Crédito', 206, 'Boulevard Xalisco 12'),
+(7, 107, '2023-03-15', 220.80, 'Paypal', 207, 'Calle brasil 34'),
+(8, 108, '2023-04-01', 90.90, 'Efectivo', 208, 'Avenida del Mar 56'),
+(9, 109, '2023-04-10', 320.70, 'Tarjeta de Débito', 209, 'Calle Estrella 78'),
+(10, 110, '2023-04-20', 110.55, 'Transferencia Bancaria', 210, 'Plaza Norte 100');
+
+
+
+
+CREATE TABLE Clientes (
+  ID_cliente INT PRIMARY KEY,
+  Nombre VARCHAR(50),
+  Telefono VARCHAR(20),
+  Email VARCHAR(100)
+);
+
+INSERT INTO Clientes (ID_cliente, Nombre, Telefono, Email) VALUES
+(1, 'Juan Perez', '555-1234', 'juan.perez@example.com'),
+(2, 'Maria Lopez', '555-5678', 'maria.lopez@example.com'),
+(3, 'Carlos Gonzalez', '555-8765', 'carlos.gonzalez@example.com'),
+(4, 'Ana Martinez', '555-4321', 'ana.martinez@example.com'),
+(5, 'Luis Rodriguez', '555-3456', 'luis.rodriguez@example.com'),
+(6, 'Carmen Garcia', '555-6543', 'carmen.garcia@example.com'),
+(7, 'Jose Hernandez', '555-7890', 'jose.hernandez@example.com'),
+(8, 'Laura Fernandez', '555-0987', 'laura.fernandez@example.com'),
+(9, 'Miguel Ruiz', '555-1122', 'miguel.ruiz@example.com'),
+(10, 'Sofia Diaz', '555-3344', 'sofia.diaz@example.com');
+
+
+
+CREATE TABLE Inventario (
+  ID_producto INT PRIMARY KEY,
+  Nombre VARCHAR(100),
+  Existencias INT,
+  Descripcion TEXT,
+  Precio DECIMAL(10, 2),
+  Categoria VARCHAR(50),
+  Fecha_entrada DATE
+);
+
+
+INSERT INTO Inventario (ID_producto, Nombre, Existencias, Precio, Categoria, Descripcion, Fecha_entrada) VALUES
+(1, 'Cocada', 50, 50.00, 'Tradicional', 'Dulce de coco típico mexicano.', '2024-08-01'),
+(2, 'Jamoncillo', 100, 99.90, 'Dulce', 'Dulce de leche con nuez.', '2024-08-01'),
+(3, 'Borrachitos', 70, 99.90, 'Exotico', 'Dulce de gelatina con un toque de licor.', '2024-08-01'),
+(4, 'Alegrías', 75, 60.00, 'Tradicional', 'Dulce hecho de amaranto y miel.', '2024-08-01'),
+(5, 'Mazapán', 40, 80.00, 'Tradicional', 'Dulce de cacahuate muy popular en México.', '2024-08-01'),
+(6, 'Paleta de Tamarindo', 25, 30.00, 'Picante', 'Paleta con sabor a tamarindo y chile.', '2024-08-01'),
+(7, 'Camote', 100, 70.00, 'Dulce', 'Dulce hecho de camote y azúcar.', '2024-08-01'),
+(8, 'Obleas', 50, 55.00, 'Tradicional', 'Dulce de oblea con cajeta.', '2024-08-01'),
+(9, 'Pulparindo', 20, 45.00, 'Picante', 'Dulce de tamarindo con chile.', '2024-08-01'),
+(10, 'Chicloso', 50, 65.00, 'Dulce', 'Dulce de leche con consistencia chiclosa.', '2024-08-01');
+
+
+CREATE TABLE Empresa (
+  ID_empresa INT PRIMARY KEY,
+  Nombre VARCHAR(100),
+  Direccion VARCHAR(255),
+  Telefono VARCHAR(20),
+  Email VARCHAR(100),
+  Sitio_Web VARCHAR(100)
+);
+
+-- Insertar datos en la tabla Empresa
+INSERT INTO Empresa (ID_empresa, Nombre, Direccion, Telefono, Email, Sitio_Web) VALUES
+(1011, 'Dulcería Viaje a tu niñez', 'Ciudad del valle, la ciudad que sonrie :)', '311-192-7165', 'Viajeatuniñez@gmail.com','www.Viajeatuniñez.com');
